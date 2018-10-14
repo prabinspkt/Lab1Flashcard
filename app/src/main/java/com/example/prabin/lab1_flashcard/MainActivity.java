@@ -1,10 +1,9 @@
-package com.example.prabin.flashcardlab1;
+package com.example.prabin.lab1_flashcard;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-
-import com.example.prabin.lab1_flashcard.R;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -12,18 +11,36 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        findViewById(R.id.answer).setVisibility(View.INVISIBLE);
+
+        findViewById(R.id.option_one).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                findViewById(R.id.option_one).setBackgroundColor(Color.parseColor("#ff0000"));
+                findViewById(R.id.option_two).setBackgroundColor(Color.parseColor("#008000"));
+            }
+        });
+
+        findViewById(R.id.option_two).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                findViewById(R.id.option_two).setBackgroundColor(Color.parseColor("#008000"));
+            }
+        });
+
+        findViewById(R.id.option_three).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                findViewById(R.id.option_three).setBackgroundColor(Color.parseColor("#ff0000"));
+                findViewById(R.id.option_two).setBackgroundColor(Color.parseColor("#008000"));
+            }
+        });
 
         findViewById(R.id.rootView).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (findViewById(R.id.question).getVisibility() == View.VISIBLE) {
-                    findViewById(R.id.question).setVisibility(View.INVISIBLE);
-                    findViewById(R.id.answer).setVisibility(View.VISIBLE);
-                } else if (findViewById(R.id.question).getVisibility() == View.INVISIBLE) {
-                    findViewById(R.id.question).setVisibility(View.VISIBLE);
-                    findViewById(R.id.answer).setVisibility(View.INVISIBLE);
-                }
+                findViewById(R.id.option_one).setBackgroundColor(Color.parseColor("#FFA500"));
+                findViewById(R.id.option_two).setBackgroundColor(Color.parseColor("#FFA500"));
+                findViewById(R.id.option_three).setBackgroundColor(Color.parseColor("#FFA500"));
             }
         });
 
