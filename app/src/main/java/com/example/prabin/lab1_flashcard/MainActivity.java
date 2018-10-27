@@ -1,9 +1,11 @@
 package com.example.prabin.lab1_flashcard;
 
-import android.graphics.Color;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -12,35 +14,41 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        findViewById(R.id.option_one).setOnClickListener(new View.OnClickListener() {
+        final TextView answer = findViewById(R.id.answer);
+        final TextView question = findViewById(R.id.question);
+        answer.setVisibility(View.INVISIBLE);
+        question.setVisibility(View.VISIBLE);
+
+        Intent add_question = getIntent();
+        String user_question = add_question.getStringExtra("question");
+        String user_answer = add_question.getStringExtra("answer");
+        answer.setText(user_answer);
+        question.setText(user_question);
+
+        findViewById(R.id.question).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                findViewById(R.id.option_one).setBackgroundColor(Color.parseColor("#ff0000"));
-                findViewById(R.id.option_two).setBackgroundColor(Color.parseColor("#008000"));
+
+                answer.setVisibility(View.VISIBLE);
+                question.setVisibility(View.INVISIBLE);
             }
         });
 
-        findViewById(R.id.option_two).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.answer).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                findViewById(R.id.option_two).setBackgroundColor(Color.parseColor("#008000"));
+                answer.setVisibility(View.INVISIBLE);
+                question.setVisibility(View.VISIBLE);
             }
         });
 
-        findViewById(R.id.option_three).setOnClickListener(new View.OnClickListener() {
+        ImageView add_button = findViewById(R.id.add_button);
+        add_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                findViewById(R.id.option_three).setBackgroundColor(Color.parseColor("#ff0000"));
-                findViewById(R.id.option_two).setBackgroundColor(Color.parseColor("#008000"));
-            }
-        });
-
-        findViewById(R.id.rootView).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                findViewById(R.id.option_one).setBackgroundColor(Color.parseColor("#FFA500"));
-                findViewById(R.id.option_two).setBackgroundColor(Color.parseColor("#FFA500"));
-                findViewById(R.id.option_three).setBackgroundColor(Color.parseColor("#FFA500"));
+                Intent add_card = new Intent(MainActivity.this, AddCardActivity.class);
+                MainActivity.this.startActivity(add_card);
+                finish();
             }
         });
 
