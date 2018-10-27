@@ -1,22 +1,24 @@
-# Lab1Flashcard
+## Lab 2
 
-This is a simple app build to practise Android App Development. 
-
-It has one MainActivity which displays a question and three options.
-
-The colors of the options change based on their correctness.
+### App Description
+`A simple app to create flashcard and display it immediately. Created to practise Android app development.
 
 ### App Walk-though
 
-<img src="http://g.recordit.co/BMOuDMsxKX.gif" width=200><br>
+<img src="http://g.recordit.co/pRh4YtdAuK.gif" width=200><br>
 
-### Required User Stories
-- [X] 1. User sees a question.
-- [X] 2. User clicks on the question to view the answer.
-- [X] 3. User clicks on the answer to view question again.
+`TODO://` In the User stories section below, add an `x` between the `-[ ]` like this `- [x]` for any user story you complete. (☝️ Remove this paragraph after after checking off user stories)
 
-### Optional User Stories
-- [X] 1. User can now see three options for answering the question. 
-- [X] 2. User can click on an option.
-- [X] 3. User can see if the answer is correct based on the color change. Red means incorrect and Green means correct.
-- [X] 4. User can restore the colors to normal by clicking anywhere else.
+## Required
+- [x] User can click on a ‘+’ button that takes the user to new ‘Add Card Screen’
+- [ ] The 'Add Card Screen' has a cancel button to take the user back to the main screen
+- [x] User can enter and submit a Question and Answer through the 'Add Card Screen'
+- [x] User will see the card they just created on the main screen when they press the 'Save Button'
+- [x] Push your progress to GitHub!
+
+## Optional
+- [ ] User can edit a card
+- [ ] An error message is shown if the user doesn't enter both a Question and an Answer
+- [ ] A notification is shown if the card was created successfully
+- [ ] User can also enter multiple choice answers when creating a card
+- [ ] App is further styled and customized!
